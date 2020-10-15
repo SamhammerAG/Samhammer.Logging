@@ -23,6 +23,7 @@ Create a class that inherits from this packages BaseLogger and implements the lo
 
 ## Contribute
 
+https://www.nuget.org/packages/Samhammer.Logging/
 #### How to publish package
 - How to publish package
 - set package version in Samhammer.Logging.csproj

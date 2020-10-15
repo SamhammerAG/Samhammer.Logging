@@ -8,15 +8,15 @@ public abstract class BaseLogger : Samhammer.Logging.BaseLogger, ILog
 ```
 
 ```csharp
-    public class NLogLogger : BaseLogger
+public class NLogLogger : BaseLogger
+{
+...
+  public override void Log(string message, Samhammer.Logging.LogDetails details, Samhammer.Logging.LogLevel loglevel, Exception ex, string memberName, string sourceFilePath,
+        int sourceLineNumber)
     {
-   ...
-      public override void Log(string message, Samhammer.Logging.LogDetails details, Samhammer.Logging.LogLevel loglevel, Exception ex, string memberName, string sourceFilePath,
-            int sourceLineNumber)
-        {
-        ...
-        }
+    ...
     }
+}
 ```
 
 Create a class that inherits from this packages BaseLogger and implements the log method. This method needs to either call some other logging framework, or directly output the log.

@@ -8,5 +8,9 @@
         public const string MemberName = "MemberName";
         public const string SourceFilePath = "SourceFilePath";
         public const string SourceLineNumber = "SourceLineNumber";
+        /// <summary>
+        /// only used if an Exception is actually logged
+        /// </summary>
+        public const string Exception = "Exception";
     }
 }

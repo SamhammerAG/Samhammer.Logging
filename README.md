@@ -30,5 +30,5 @@ https://www.nuget.org/packages/Samhammer.Logging/
 - add information to changelog
 - create git tag
 - dotnet pack -c Release
-- nuget push .\samhammer.logging\samhammer.logging\bin\Release\Samhammer.Logging.*.nupkg NUGET_API_KEY -src https://api.nuget.org/v3/index.json
-(optional) nuget setapikey NUGET_API_KEY -source https://api.nuget.org/v3/index.json
+- nuget push .\samhammer.logging\bin\Release\Samhammer.Logging.*.nupkg NUGET_API_KEY -src https://api.nuget.org/v3/index.json
+- (optional) nuget setapikey NUGET_API_KEY -source https://api.nuget.org/v3/index.json

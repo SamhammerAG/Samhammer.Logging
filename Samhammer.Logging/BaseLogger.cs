@@ -11,37 +11,37 @@
         public void Verbose(string message, LogDetails details = null, Exception ex = null, string memberName = "",
             string sourceFilePath = "", int sourceLineNumber = 0)
         {
-            Log(message, details, LogLevel.Verbose);
+            Log(message, LogLevel.Verbose, details, ex, memberName, sourceFilePath, sourceLineNumber);
         }
 
         public void Debug(string message, LogDetails details = null, Exception ex = null, [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
-            Log(message, details, LogLevel.Debug);
+            Log(message, LogLevel.Debug, details, ex, memberName, sourceFilePath, sourceLineNumber);
         }
 
         public void Info(string message, LogDetails details = null, Exception ex = null, [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
-            Log(message, details, LogLevel.Information);
+            Log(message, LogLevel.Information, details, ex, memberName, sourceFilePath, sourceLineNumber);
         }
 
         public void Warn(string message, LogDetails details = null, Exception ex = null, [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
-            Log(message, details, LogLevel.Warning);
+            Log(message, LogLevel.Warning, details, ex, memberName, sourceFilePath, sourceLineNumber);
         }
 
         public void Error(string message, LogDetails details = null, Exception ex = null, [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
-            Log(message, details, LogLevel.Error);
+            Log(message, LogLevel.Error, details, ex, memberName, sourceFilePath, sourceLineNumber);
         }
 
         public void Fatal(string message, LogDetails details = null, Exception ex = null, string memberName = "",
             string sourceFilePath = "", int sourceLineNumber = 0)
         {
-            Log(message, details, LogLevel.Fatal);
+            Log(message, LogLevel.Fatal, details, ex, memberName, sourceFilePath, sourceLineNumber);
         }
 
         public void Log(string message, LogLevel logLevel, LogDetails details = null, Exception ex = null, string memberName = "",

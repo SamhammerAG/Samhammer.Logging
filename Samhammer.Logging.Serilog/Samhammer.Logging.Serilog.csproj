@@ -2,19 +2,19 @@
 
   <PropertyGroup>
     <LangVersion>8.0</LangVersion>
-    <TargetFrameworks>netcoreapp3.1;netstandard2.1;net472;;netstandard1.3</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <Authors>Samhammer AG</Authors>
     <Company>Samhammer AG</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/SamhammerAG/Samhammer.Logging</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SamhammerAG/Samhammer.Logging</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>2.1.0</Version>
+    <Version>4.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Samhammer.Logging" Version="4.1.0" />
+    <PackageReference Include="Samhammer.Logging" Version="4.1.1" />
     <PackageReference Include="Serilog" Version="2.10.0" />
   </ItemGroup>
 

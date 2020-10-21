@@ -23,8 +23,3 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
-    - name: Pack with dotnet
-      run: dotnet pack --configuration Release
-    - name: Push with dotnet
-      run: dotnet nuget push .\samhammer.logging\bin\Release\Samhammer.Logging.*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
-

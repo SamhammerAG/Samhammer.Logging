@@ -11,7 +11,7 @@ public abstract class BaseLogger : Samhammer.Logging.BaseLogger, ILog
 public class NLogLogger : BaseLogger
 {
 ...
-  public override void Log(string message, Samhammer.Logging.LogDetails details, Samhammer.Logging.LogLevel loglevel, Exception ex, string memberName, string sourceFilePath,
+  public override void Log(string message, string logType, Samhammer.Logging.LogDetails details, Samhammer.Logging.LogLevel loglevel, Exception ex, string memberName, string sourceFilePath,
         int sourceLineNumber)
     {
     ...

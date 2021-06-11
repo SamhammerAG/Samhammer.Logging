@@ -7,8 +7,10 @@ namespace Samhammer.Logging.Serilog
 {
     public class SerilogLogger : BaseLogger
     {
-        protected override void Log(string message, LogDetails details, LogLevel loglevel)
+        protected override void Log(string message, string logType, LogDetails details, LogLevel loglevel)
         {
+            details.Add(nameof(logType), logType);
+            
             LogWithDetails(() => global::Serilog.Log.Write(loglevel.ToSerilogLogLevel(), message), details);
         }
 

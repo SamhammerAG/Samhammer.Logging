@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <LangVersion>8.0</LangVersion>
-    <TargetFrameworks>netstandard2.0;</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Samhammer AG</Authors>
     <Company>Samhammer AG</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

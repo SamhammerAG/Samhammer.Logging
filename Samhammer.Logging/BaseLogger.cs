@@ -6,45 +6,45 @@
 
     public abstract class BaseLogger : ILog
     {
-        protected abstract void Log(string message, string logType, LogDetails details, LogLevel loglevel);
+        protected abstract void Log(string message, BaseLogType logType, LogDetails details, LogLevel loglevel);
 
-        public void Verbose(string message, string logType, LogDetails details = null, Exception ex = null, string memberName = "",
+        public void Verbose(string message, BaseLogType logType, LogDetails details = null, Exception ex = null, string memberName = "",
             string sourceFilePath = "", int sourceLineNumber = 0)
         {
             Log(message, logType, LogLevel.Verbose, details, ex, memberName, sourceFilePath, sourceLineNumber);
         }
 
-        public void Debug(string message, string logType, LogDetails details = null, Exception ex = null, [CallerMemberName] string memberName = "",
+        public void Debug(string message, BaseLogType logType, LogDetails details = null, Exception ex = null, [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             Log(message, logType, LogLevel.Debug, details, ex, memberName, sourceFilePath, sourceLineNumber);
         }
 
-        public void Info(string message, string logType, LogDetails details = null, Exception ex = null, [CallerMemberName] string memberName = "",
+        public void Info(string message, BaseLogType logType, LogDetails details = null, Exception ex = null, [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             Log(message, logType, LogLevel.Information, details, ex, memberName, sourceFilePath, sourceLineNumber);
         }
 
-        public void Warn(string message, string logType, LogDetails details = null, Exception ex = null, [CallerMemberName] string memberName = "",
+        public void Warn(string message, BaseLogType logType, LogDetails details = null, Exception ex = null, [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             Log(message, logType, LogLevel.Warning, details, ex, memberName, sourceFilePath, sourceLineNumber);
         }
 
-        public void Error(string message, string logType, LogDetails details = null, Exception ex = null, [CallerMemberName] string memberName = "",
+        public void Error(string message, BaseLogType logType, LogDetails details = null, Exception ex = null, [CallerMemberName] string memberName = "",
             [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
         {
             Log(message, logType, LogLevel.Error, details, ex, memberName, sourceFilePath, sourceLineNumber);
         }
 
-        public void Fatal(string message, string logType, LogDetails details = null, Exception ex = null, string memberName = "",
+        public void Fatal(string message, BaseLogType logType, LogDetails details = null, Exception ex = null, string memberName = "",
             string sourceFilePath = "", int sourceLineNumber = 0)
         {
             Log(message, logType, LogLevel.Fatal, details, ex, memberName, sourceFilePath, sourceLineNumber);
         }
 
-        public void Log(string message, string logType, LogLevel logLevel, LogDetails details = null, Exception ex = null, string memberName = "",
+        public void Log(string message, BaseLogType baseLogType, LogLevel logLevel, LogDetails details = null, Exception ex = null, string memberName = "",
             string sourceFilePath = "", int sourceLineNumber = 0)
         {
             details ??= new LogDetails();
@@ -59,7 +59,7 @@
                 details.Add(LogMetadataFieldNames.Exception, ex);
             }
 
-            Log(message, logType, details, logLevel);
+            Log(message, baseLogType, details, logLevel);
         }
 
         public LogDetails Add(string key, object value)

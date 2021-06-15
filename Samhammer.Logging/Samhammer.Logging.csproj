@@ -9,7 +9,11 @@
     <PackageProjectUrl>https://github.com/SamhammerAG/Samhammer.Logging</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SamhammerAG/Samhammer.Logging</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>5.0.0</Version>
+    <Version>6.0.0</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ardalis.SmartEnum" Version="2.0.1" />
+  </ItemGroup>
 
 </Project>

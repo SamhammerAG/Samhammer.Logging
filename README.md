@@ -1,8 +1,9 @@
 # Samhammer.Logging
 
-Logging Interface that implements 
+Logging abstraction for .NET Core
 
 ## Usage
+### Custom logger:
 ```csharp
 public abstract class BaseLogger : Samhammer.Logging.BaseLogger, ILog
 ```
@@ -20,6 +21,23 @@ public class NLogLogger : BaseLogger
 ```
 
 Create a class that inherits from this packages BaseLogger and implements the log method. This method needs to either call some other logging framework, or directly output the log.
+
+### Setup & Use Logger
+```csharp
+Logger.Init(() => new SerilogLogger());
+```
+
+```csharp
+ILog log = Logger.Log();
+
+log.Error("Example", LogType.SomeType);
+```
+
+## Packages
+| Package |
+| --- |
+| [Samhammer.Logging](https://www.nuget.org/packages/Samhammer.Logging/) |
+| [Samhammer.Logging.Serilog](https://www.nuget.org/packages/Samhammer.Logging.Serilog/) |
 
 ## Contribute
 

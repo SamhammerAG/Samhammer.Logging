@@ -10,7 +10,27 @@
 
         public LogDetails Add(string key, object value)
         {
-            Details.Add(key, value);
+            if (Details.TryGetValue(key, out _))
+            {
+                if (Details[key] != value)
+                {
+                    Details[key] = value;
+                }
+                else
+                {
+                    var details = new LogDetails();
+                    details.Add("StackTrace", Environment.StackTrace);
+                    details.Add("Key", key);
+                    details.Add("Value", value);
+                    
+                    Logger.Log()?.Warn("Tried to insert duplicate key to log details!", null, details);
+                }
+            }
+            else
+            {
+                Details.Add(key, value);
+            }
+
             return this;
         }
 

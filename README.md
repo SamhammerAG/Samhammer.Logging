@@ -40,8 +40,6 @@ log.Error("Example", LogType.SomeType);
 | [Samhammer.Logging.Serilog](https://www.nuget.org/packages/Samhammer.Logging.Serilog/) |
 
 ## Contribute
-
-https://www.nuget.org/packages/Samhammer.Logging/
 #### How to publish package
 - How to publish package
 - set package version in Samhammer.Logging.csproj

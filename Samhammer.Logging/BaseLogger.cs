@@ -44,9 +44,11 @@
             Log(message, logType, LogLevel.Fatal, details, ex, memberName, sourceFilePath, sourceLineNumber);
         }
 
-        public void Log(string message, BaseLogType baseLogType, LogLevel logLevel, LogDetails details = null, Exception ex = null, string memberName = "",
+        public void Log(string message, BaseLogType logType, LogLevel logLevel, LogDetails details = null, Exception ex = null, string memberName = "",
             string sourceFilePath = "", int sourceLineNumber = 0)
         {
+            logType ??= Logger.GetFallbackLogType();
+            
             details ??= new LogDetails();
 
             //add possible exception and info about where the log was written into the logDetails
@@ -59,7 +61,7 @@
                 details.Add(LogMetadataFieldNames.Exception, ex);
             }
 
-            Log(message, baseLogType, details, logLevel);
+            Log(message, logType, details, logLevel);
         }
 
         public LogDetails Add(string key, object value)

@@ -9,5 +9,10 @@ namespace Samhammer.Logging
         protected BaseLogType(string name, int value) : base(name, value)
         {
         }
+
+        /// <summary>
+        /// Fallback LogType which is used when no other LogType is provided.
+        /// </summary>
+        public abstract BaseLogType FallbackLogType { get; }
     }
 }

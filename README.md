@@ -24,7 +24,7 @@ Create a class that inherits from this packages BaseLogger and implements the lo
 
 ### Setup & Use Logger
 ```csharp
-Logger.Init(() => new SerilogLogger());
+Logger.Init(() => new SerilogLogger(), fallbackLogType);
 ```
 
 ```csharp

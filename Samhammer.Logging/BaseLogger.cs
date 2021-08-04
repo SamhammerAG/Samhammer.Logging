@@ -47,8 +47,6 @@
         public void Log(string message, BaseLogType logType, LogLevel logLevel, LogDetails details = null, Exception ex = null, string memberName = "",
             string sourceFilePath = "", int sourceLineNumber = 0)
         {
-            logType ??= Logger.GetFallbackLogType();
-            
             details ??= new LogDetails();
 
             //add possible exception and info about where the log was written into the logDetails

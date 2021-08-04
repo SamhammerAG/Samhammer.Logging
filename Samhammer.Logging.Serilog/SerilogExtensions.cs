@@ -1,4 +1,6 @@
 ﻿using System;
+using Serilog;
+using Serilog.Configuration;
 using Serilog.Events;
 
 namespace Samhammer.Logging.Serilog
@@ -17,6 +19,12 @@ namespace Samhammer.Logging.Serilog
                 LogLevel.Fatal => LogEventLevel.Fatal,
                 _ => throw new Exception("unknown logLevel")
             };
+        }
+
+        public static LoggerConfiguration WithFallbackLogType(this LoggerEnrichmentConfiguration configuration,
+            BaseLogType fallback)
+        {
+            return configuration.With(new FallbackLogTypeEnricher(fallback));
         }
     }
 }

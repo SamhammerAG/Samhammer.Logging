@@ -26,5 +26,13 @@ namespace Samhammer.Logging.Serilog
         {
             return configuration.With(new FallbackLogTypeEnricher(fallback));
         }
+
+        /// <summary>
+        /// Attempts to Replaces bearer Tokens and refresh tokens from LogDetails using regex with "maskedData.
+        /// </summary>
+        public static LoggerConfiguration WithTokenMasker(this LoggerEnrichmentConfiguration configuration)
+        {
+            return configuration.With(new TokenMaskLogEventEnricher());
+        }
     }
 }

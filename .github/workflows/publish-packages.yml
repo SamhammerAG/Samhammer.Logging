@@ -1,0 +1,32 @@
+name: publish packages
+
+on:
+  create:
+    tags:
+      - v*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
+    - name: Pack
+      run: dotnet pack -c Release
+    - name: publish Samhammer.Logging
+      run: dotnet nuget push "Samhammer.Logging/bin/release/samhammer.logging.*.nupkg" --api-key ${NUGET_KEY} --source https://api.nuget.org/v3/index.json
+      env:
+        NUGET_KEY: ${{ secrets.NUGET_KEY}}
+    - name: public Samhammer.Logging.Serilog
+      run: dotnet nuget push "Samhammer.Logging.Serilog/bin/release/samhammer.logging.Serilog.*.nupkg" --api-key ${NUGET_KEY}  --source https://api.nuget.org/v3/index.json
+      env:
+        NUGET_KEY: ${{ secrets.NUGET_KEY}}

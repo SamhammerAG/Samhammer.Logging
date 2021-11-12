@@ -32,7 +32,7 @@ namespace Samhammer.Logging.Serilog
         /// </summary>
         public static LoggerConfiguration WithTokenMasker(this LoggerEnrichmentConfiguration configuration)
         {
-            return configuration.With(new TokenMaskLogEventEnricher());
+            return configuration.With(new TokenMaskEnricher());
         }
     }
 }

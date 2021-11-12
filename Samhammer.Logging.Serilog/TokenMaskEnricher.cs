@@ -5,7 +5,7 @@ using Serilog.Events;
 
 namespace Samhammer.Logging.Serilog
 {
-    public class TokenMaskLogEventEnricher : ILogEventEnricher
+    public class TokenMaskEnricher : ILogEventEnricher
     {
         // language=regex matches url encoded (refresh_token=eyJhbGciOiJIUzI1N) and json ("refresh_token":"eyJhbGciOiJIUzI1N")
         private const string UrlRefreshTokenPattern = "(?<=refresh_token=|refresh_token\":\")[^\" \n&]*";

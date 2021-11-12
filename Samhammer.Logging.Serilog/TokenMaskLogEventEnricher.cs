@@ -23,7 +23,7 @@ namespace Samhammer.Logging.Serilog
                 var match = bearerTokenRegex.Replace(p.Value.ToString(), x =>
                 {
                     changed = true;
-                    return "maskedToken";
+                    return "redacted";
                 });
 
                 if (changed)

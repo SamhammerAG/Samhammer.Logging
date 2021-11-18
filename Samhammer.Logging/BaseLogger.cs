@@ -6,7 +6,7 @@
 
     public abstract class BaseLogger : ILog
     {
-        protected abstract void Log(string message, BaseLogType logType, LogDetails details, LogLevel loglevel);
+        protected abstract void Log(string message, BaseLogType logType, LogDetails details, LogLevel loglevel, Exception exception = null);
 
         public void Verbose(string message, BaseLogType logType, LogDetails details = null, Exception ex = null, string memberName = "",
             string sourceFilePath = "", int sourceLineNumber = 0)
@@ -54,12 +54,7 @@
                 .Add(LogMetadataFieldNames.SourceFilePath, sourceFilePath)
                 .Add(LogMetadataFieldNames.SourceLineNumber, sourceLineNumber);
 
-            if (ex != null)
-            {
-                details.Add(LogMetadataFieldNames.Exception, ex);
-            }
-
-            Log(message, logType, details, logLevel);
+            Log(message, logType, details, logLevel, ex);
         }
 
         public LogDetails Add(string key, object value)

@@ -23,10 +23,10 @@ jobs:
     - name: Pack
       run: dotnet pack -c Release
     - name: publish Samhammer.Logging
-      run: dotnet nuget push "Samhammer.Logging/bin/Release/Samhammer.Logging.*.nupkg" --api-key ${NUGET_KEY} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push "Samhammer.Logging/bin/Release/Samhammer.Logging.*.nupkg" --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
       env:
         NUGET_KEY: ${{ secrets.NUGET_KEY}}
     - name: public Samhammer.Logging.Serilog
-      run: dotnet nuget push "Samhammer.Logging.Serilog/bin/Release/Samhammer.logging.Serilog.*.nupkg" --api-key ${NUGET_KEY}  --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push "Samhammer.Logging.Serilog/bin/Release/Samhammer.logging.Serilog.*.nupkg" --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
       env:
         NUGET_KEY: ${{ secrets.NUGET_KEY}}

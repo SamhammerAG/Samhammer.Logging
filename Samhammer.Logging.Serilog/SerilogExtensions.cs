@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Serilog;
 using Serilog.Configuration;
 using Serilog.Events;
@@ -33,6 +34,15 @@ namespace Samhammer.Logging.Serilog
         public static LoggerConfiguration WithTokenMasker(this LoggerEnrichmentConfiguration configuration)
         {
             return configuration.With(new TokenMaskEnricher());
+        }
+        
+        /// <summary>
+        /// Replaces specific strings in property values with stars (example: "password" -> "********"
+        /// </summary>
+        public static LoggerConfiguration WithCredentialMasker(
+            this LoggerEnrichmentConfiguration configuration, HashSet<string> secrets)
+        {
+            return configuration.With(new BlackListEnricher(secrets));
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Samhammer.Logging.Serilog
         /// Replaces specific strings in property values with stars (example: "password" -> "********"
         /// </summary>
         public static LoggerConfiguration WithBlackListEnricher(
-            this LoggerEnrichmentConfiguration configuration, HashSet<string> secrets)
+            this LoggerEnrichmentConfiguration configuration, string[] secrets)
         {
             return configuration.With(new BlackListEnricher(secrets));
         }

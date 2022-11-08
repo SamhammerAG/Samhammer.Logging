@@ -6,9 +6,9 @@ namespace Samhammer.Logging.Serilog.Enrichers
 {
     public class BlackListEnricher : ILogEventEnricher
     {
-        private HashSet<string> blackList;
+        private string[] blackList;
 
-        public BlackListEnricher(HashSet<string> blackList)
+        public BlackListEnricher(string[] blackList)
         {
             this.blackList = blackList;
         }

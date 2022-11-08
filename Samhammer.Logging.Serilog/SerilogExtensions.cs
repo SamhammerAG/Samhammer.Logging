@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Samhammer.Logging.Serilog.Enrichers;
 using Serilog;
 using Serilog.Configuration;

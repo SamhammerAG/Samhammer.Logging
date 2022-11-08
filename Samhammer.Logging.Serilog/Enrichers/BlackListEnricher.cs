@@ -2,15 +2,15 @@
 using Serilog.Core;
 using Serilog.Events;
 
-namespace Samhammer.Logging.Serilog
+namespace Samhammer.Logging.Serilog.Enrichers
 {
     public class BlackListEnricher : ILogEventEnricher
     {
-        private HashSet<string> secrets;
+        private HashSet<string> blackList;
 
-        public BlackListEnricher(HashSet<string> secrets)
+        public BlackListEnricher(HashSet<string> blackList)
         {
-            this.secrets = secrets;
+            this.blackList = blackList;
         }
 
         public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
@@ -20,7 +20,7 @@ namespace Samhammer.Logging.Serilog
             {
                 var value = property.Value.ToString();
 
-                foreach (var secret in secrets)
+                foreach (var secret in blackList)
                 {
                     value = value.Replace(secret, new string('*', secret.Length));
                 }

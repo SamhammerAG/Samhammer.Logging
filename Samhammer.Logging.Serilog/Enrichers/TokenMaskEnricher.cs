@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using Serilog.Core;
 using Serilog.Events;
 
-namespace Samhammer.Logging.Serilog
+namespace Samhammer.Logging.Serilog.Enrichers
 {
     public class TokenMaskEnricher : ILogEventEnricher
     {

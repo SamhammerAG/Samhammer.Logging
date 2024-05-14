@@ -1,12 +1,11 @@
-﻿namespace Samhammer.Logging
+﻿namespace Samhammer.Logging;
+
+public enum LogLevel
 {
-    public enum LogLevel
-    {
-        Verbose,
-        Debug,
-        Information,
-        Warning,
-        Error,
-        Fatal
-    }
+    Verbose,
+    Debug,
+    Information,
+    Warning,
+    Error,
+    Fatal
 }

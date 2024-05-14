@@ -1,19 +1,18 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Authors>Samhammer AG</Authors>
     <Company>Samhammer AG</Company>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/SamhammerAG/Samhammer.Logging</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SamhammerAG/Samhammer.Logging</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>10.0.0</Version>
+    <Version>11.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Ardalis.SmartEnum" Version="2.1.0" />
+    <PackageReference Include="Ardalis.SmartEnum" Version="8.0.0" />
   </ItemGroup>
 
 </Project>

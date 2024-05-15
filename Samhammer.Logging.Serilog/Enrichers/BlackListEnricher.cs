@@ -2,36 +2,35 @@
 using Serilog.Core;
 using Serilog.Events;
 
-namespace Samhammer.Logging.Serilog.Enrichers
+namespace Samhammer.Logging.Serilog.Enrichers;
+
+public class BlackListEnricher : ILogEventEnricher
 {
-    public class BlackListEnricher : ILogEventEnricher
+    private readonly string[] _blackList;
+
+    public BlackListEnricher(string[] blackList)
     {
-        private string[] blackList;
+        _blackList = blackList;
+    }
 
-        public BlackListEnricher(string[] blackList)
+    public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
+    {
+        var propsToModify = new List<LogEventProperty>();
+        foreach (var property in logEvent.Properties)
         {
-            this.blackList = blackList;
-        }
+            var value = property.Value.ToString();
 
-        public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
-        {
-            var propsToModify = new List<LogEventProperty>();
-            foreach (var property in logEvent.Properties)
+            foreach (var secret in _blackList)
             {
-                var value = property.Value.ToString();
-
-                foreach (var secret in blackList)
-                {
-                    value = value.Replace(secret, new string('*', secret.Length));
-                }
-
-                if (value != property.Value.ToString())
-                {
-                    propsToModify.Add(propertyFactory.CreateProperty(property.Key, value));
-                }
+                value = value.Replace(secret, new string('*', secret.Length));
             }
 
-            propsToModify.ForEach(logEvent.AddOrUpdateProperty);
+            if (value != property.Value.ToString())
+            {
+                propsToModify.Add(propertyFactory.CreateProperty(property.Key, value));
+            }
         }
+
+        propsToModify.ForEach(logEvent.AddOrUpdateProperty);
     }
 }

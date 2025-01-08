@@ -8,12 +8,12 @@
     <PackageProjectUrl>https://github.com/SamhammerAG/Samhammer.Logging</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SamhammerAG/Samhammer.Logging</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>11.1.0</Version>
+    <Version>11.1.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Serilog" Version="4.0.0" />
+    <PackageReference Include="Serilog" Version="4.2.0" />
   </ItemGroup>
 
   <ItemGroup>

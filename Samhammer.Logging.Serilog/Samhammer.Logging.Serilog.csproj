@@ -8,7 +8,7 @@
     <PackageProjectUrl>https://github.com/SamhammerAG/Samhammer.Logging</PackageProjectUrl>
     <RepositoryUrl>https://github.com/SamhammerAG/Samhammer.Logging</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>11.1.1</Version>
+    <Version>11.1.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
